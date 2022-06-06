@@ -1,0 +1,8 @@
+<div class="App">
+  <form>
+    <MyInput type="text" placeholder="Название поста" value="{{title}}" (change)="setTitle($event)"></MyInput>
+    <MyInput type="text" placeholder="Описание поста" (change)="setTitle($event)"></MyInput>
+    <MyButton [description]="'Создать пост'" (click)="addNewPost($event)" ></MyButton>
+  </form>
+  <app-post-list [postArray]="postArray" [title]="title"></app-post-list>
+</div>
