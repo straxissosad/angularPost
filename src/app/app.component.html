@@ -14,5 +14,17 @@
     />
     <button class="myBtn" (click)="addNewPost()">Создать пост</button>
   </form>
-  <app-post-list [postArray]="postArray" [title]="title"></app-post-list>
+  <hr style="margin-top: 15px"/>
+  <div>
+    <select (change)="selectedSort($event)">
+      <option value="title">По названию</option>
+      <option value="body">По описанию</option>
+    </select>
+  </div>
+  <div *ngIf="postArray.length">
+    <app-post-list [postArray]="postArray" [title]="title"></app-post-list>
+  </div>
+  <div *ngIf="!postArray.length">
+    <h1 style="text-align: center">Постов еще нет</h1>
+  </div>
 </div>
