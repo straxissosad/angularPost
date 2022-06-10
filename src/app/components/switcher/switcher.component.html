@@ -1,0 +1,14 @@
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (change)="changeSwitch()" >
+</div>
+<div *ngIf="switch">
+  <h1>Выберите команду</h1>
+  <select>
+    <option>1 Команда</option>
+    <option>2 команда(здесь подгружаешь с бд)</option>
+  </select>
+</div>
+<div *ngIf="!switch">
+  <h1>Название команды</h1>
+  <input placeholder="Введите название команды" [(ngModel)]="thereIsText">
+</div>

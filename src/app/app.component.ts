@@ -1,26 +1,35 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Post} from "./model/post-model";
+import {PostServiceService} from "./service/post-service.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  postArray = [
-    {id:1, title: 'JavaScript', body: 'Description'},
-    {id:2, title: 'JavaScript 2', body: 'Description'},
-    {id:3, title: 'JavaScript 3', body: 'Description'}
-  ]
-
-
+export class AppComponent implements OnInit{
+  postArray: Post[] = [];
+  postObj: Post = new Post();
+  addPostTitle: string = '';
+  addPostBody: string = '';
   title = 'angularLearn';
 
-  addNewPost(event:any) {
-    event.preventDefault()
-    console.log(this.title)
+  constructor(private postService: PostServiceService) { }
+
+  ngOnInit():void {
+    this.getAllPost();
   }
 
-  setTitle(event: any) {
-    this.title = event.target.value;
+  addNewPost() {
+    this.postObj.title = this.addPostTitle;
+    this.postObj.body = this.addPostBody;
+    this.postObj.id = Date.now();
+    this.postArray.push(this.postObj)
+  }
+
+  getAllPost() {
+    this.postService.getAllPosts().subscribe(post => {
+      this.postArray = post;
+    })
   }
 }

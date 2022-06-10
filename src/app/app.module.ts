@@ -6,6 +6,9 @@ import { PostItemComponent } from './components/post-item/post-item.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { ButtonComponent } from './components/UI/button/button.component';
 import { InputComponent } from './components/UI/input/input.component';
+import {FormsModule} from "@angular/forms";
+import { SwitcherComponent } from './components/switcher/switcher.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,9 +17,12 @@ import { InputComponent } from './components/UI/input/input.component';
     PostListComponent,
     ButtonComponent,
     InputComponent,
+    SwitcherComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
