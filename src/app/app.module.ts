@@ -9,6 +9,8 @@ import { InputComponent } from './components/UI/input/input.component';
 import {FormsModule} from "@angular/forms";
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { HttpClientModule } from "@angular/common/http";
+import { FilterPipe } from './pipes/filter.pipe';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { HttpClientModule } from "@angular/common/http";
     ButtonComponent,
     InputComponent,
     SwitcherComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
