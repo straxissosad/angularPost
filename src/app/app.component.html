@@ -1,19 +1,37 @@
 <div class="App">
-  <form>
-    <input  class="myInput"
-            type="text"
-            placeholder="Название поста"
-            [(ngModel)]="addPostTitle"
-            name="first"
-    />
-    <input  class="myInput"
-            type="text"
-            placeholder="Описание поста"
-            [(ngModel)]="addPostBody"
-            name="second"
-    />
-    <button class="myBtn" (click)="addNewPost()">Создать пост</button>
-  </form>
+  <div>
+    <button type="button" class="myBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-top: 15px">
+      Создать новый пост
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Создать пост</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input  class="myInput"
+                    type="text"
+                    placeholder="Название поста"
+                    [(ngModel)]="addPostTitle"
+                    name="first"
+            />
+            <input  class="myInput"
+                    type="text"
+                    placeholder="Описание поста"
+                    [(ngModel)]="addPostBody"
+                    name="second"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="myBtn" data-bs-dismiss="modal">Закрыть</button>
+            <button class="myBtn" (click)="addNewPost()">Создать пост</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <hr style="margin-top: 15px"/>
   <div>
     <input placeholder="Поиск"
