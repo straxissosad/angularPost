@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PostListComponent implements OnInit {
   @Input() postArray!:{id:number, title: string, body:string}[]
   @Input() title!: string;
+  @Input() searchQuery!: string;
 
   constructor() { }
 

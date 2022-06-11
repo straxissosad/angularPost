@@ -1,4 +1,4 @@
 <h1 style="text-align: center">{{title}}</h1>
-<div *ngFor="let postItem of postArray">
+<div *ngFor="let postItem of postArray | filter: searchQuery">
   <app-post-item [post]="postItem" [key] ="postItem.id"></app-post-item>
 </div>

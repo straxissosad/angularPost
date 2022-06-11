@@ -16,13 +16,17 @@
   </form>
   <hr style="margin-top: 15px"/>
   <div>
+    <input placeholder="Поиск"
+           [(ngModel)]="searchQuery"
+           class="myInput"
+    />
     <select (change)="selectedSort($event)">
       <option value="title">По названию</option>
       <option value="body">По описанию</option>
     </select>
   </div>
   <div *ngIf="postArray.length">
-    <app-post-list [postArray]="postArray" [title]="title"></app-post-list>
+    <app-post-list [postArray]="postArray" [title]="title" [searchQuery]="searchQuery"></app-post-list>
   </div>
   <div *ngIf="!postArray.length">
     <h1 style="text-align: center">Постов еще нет</h1>
