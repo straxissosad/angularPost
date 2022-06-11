@@ -17,7 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
     PostListComponent,
     ButtonComponent,
     InputComponent,
-    SwitcherComponent
+    SwitcherComponent,
   ],
   imports: [
     BrowserModule,

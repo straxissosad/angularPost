@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   addPostTitle: string = '';
   addPostBody: string = '';
   title = 'angularLearn';
+  searchQuery: string = '';
 
   constructor(private postService: PostServiceService) { }
 
@@ -24,12 +25,19 @@ export class AppComponent implements OnInit{
     this.postObj.title = this.addPostTitle;
     this.postObj.body = this.addPostBody;
     this.postObj.id = Date.now();
-    this.postArray.push(this.postObj)
+    this.postArray.push(this.postObj);
+    this.addPostBody = '';
+    this.addPostTitle = '';
   }
 
   getAllPost() {
     this.postService.getAllPosts().subscribe(post => {
       this.postArray = post;
     })
+  }
+
+  selectedSort(event: any) {
+    const sort: 'body' | 'title' = event.target.value;
+    this.postArray.sort((a,b) => a[sort].localeCompare(b[sort]))
   }
 }
